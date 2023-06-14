@@ -1,3 +1,29 @@
-<div>
-  <h1>Hola mundo!!!</h1>
+<div class="container">
+  <div class="row">
+    <h1>Hola</h1>
+    <p>{{grupo}}</p>
+
+    <div>El doble de 3 es {{duplicarN(3)}}</div> <!-- Interpolación de texto -->
+    <hr>
+
+    <div>
+      <b>Matricula: </b>{{alumnos.matricula}}
+    </div>
+
+    <div>
+      <b>Nombre: </b>{{alumnos.nombre | lowercase}}
+    </div>
+
+    <div>
+      <b>Fecha de nacimiento: </b>{{alumnos.fechaNacimiento | date:"dd-MM-yy"}}
+    </div>
+
+    <div>
+      <b>Pago: </b>{{alumnos.pago | currency}}
+    </div>
+  </div>
 </div>
+<hr>
+<app-grupo></app-grupo> <!-- Importación de Componente -->
+<hr>
+<app-ievn></app-ievn>
