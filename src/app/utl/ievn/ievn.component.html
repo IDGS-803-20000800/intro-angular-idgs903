@@ -1,31 +1,45 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <table class="table" *ngIf="alumnos.length"> <!-- Directiva ngIf -->
-                <thead>
-                    <tr>
-                        <th>
-                            <button class="btn btn-primary">Mostrar Imagen</button>
-                        </th>
-                        <th>Matricula</th>
-                        <th>Nombre</th>
-                        <th>Edad</th>
-                        <th>Correo</th>
-                        <th>Pago</th>
-                        <th>Foto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let alumno of alumnos"> <!-- Directiva ngFor -->
-                        <td>{{alumno.matricula}}</td>
-                        <td>{{alumno.nombre | uppercase}}</td>
-                        <td>{{alumno.edad}}</td>
-                        <td>{{alumno.correo}}</td>
-                        <td>{{alumno.pago | currency}}</td>
-                        <td><img [src]="alumno.foto" alt="" width="150px"></td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="card">
+    <div class="card-header">
+        Lista Alumnos
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2"> Filtrar po:</div>
+            <div class="col-md-4">
+                <input [(ngModel)]="listFilter" type="text" class="form-control"> <!-- Enlace de datos bidireccional -->
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Filtro:{{listFilter}}</h3>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table" *ngIf="alumnos.length"> <!-- Directiva ngIf -->
+            <thead>
+                <tr>
+                    <th>
+                        <button (click)="showImagen()" class="btn btn-primary">Mostrar Imagen</button> <!-- Enlace de evento -->
+                    </th>
+                    <th>Matricula</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Correo</th>
+                    <th>Pago</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let alumno of alumnos"> <!-- Directiva ngFor -->
+                    <td><img *ngIf="muestraImg" [src]="alumno.foto" [title]="alumno.nombre" [style.width.px]="imagenWidth"
+                            [style.margin.px]="imagenMargin"></td>
+                    <td>{{alumno.matricula}}</td>
+                    <td>{{alumno.nombre | uppercase}}</td>
+                    <td>{{alumno.edad}}</td>
+                    <td>{{alumno.correo}}</td>
+                    <td>{{alumno.pago | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

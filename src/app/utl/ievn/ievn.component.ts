@@ -6,6 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./ievn.component.css']
 })
 export class IevnComponent {
+  imagenWidth: number = 50;
+  imagenMargin: number = 2;
+  muestraImg: boolean = true;
+  listFilter: string = '';
+  
+  showImagen(): void {
+    this.muestraImg = !this.muestraImg;
+  }
+
   alumnos: any[] = [
     { "matricula": 1234, 
       "nombre": 'Mario', 
