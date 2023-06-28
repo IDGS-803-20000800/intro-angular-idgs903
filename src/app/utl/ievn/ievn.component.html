@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-md-2"> Filtrar po:</div>
+            <div class="col-md-2"> Filtrar por:</div>
             <div class="col-md-4">
                 <input [(ngModel)]="listFilter" type="text" class="form-control"> <!-- Enlace de datos bidireccional -->
             </div>
@@ -20,24 +20,27 @@
             <thead>
                 <tr>
                     <th>
-                        <button (click)="showImagen()" class="btn btn-primary">Mostrar Imagen</button> <!-- Enlace de evento -->
+                        <button (click)="showImagen()" class="btn btn-primary">Mostrar Imagen</button>
+                        <!-- Enlace de evento -->
                     </th>
                     <th>Matricula</th>
                     <th>Nombre</th>
                     <th>Edad</th>
                     <th>Correo</th>
                     <th>Pago</th>
+                    <th>Calificación</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let alumno of alumnos"> <!-- Directiva ngFor -->
-                    <td><img *ngIf="muestraImg" [src]="alumno.foto" [title]="alumno.nombre" [style.width.px]="imagenWidth"
-                            [style.margin.px]="imagenMargin"></td>
+                <tr *ngFor="let alumno of alumnos | alumnosFilter: listFilter"> <!-- Directiva ngFor -->
+                    <td><img *ngIf="muestraImg" [src]="alumno.foto" [title]="alumno.nombre"
+                            [style.width.px]="imagenWidth" [style.margin.px]="imagenMargin"></td>
                     <td>{{alumno.matricula}}</td>
                     <td>{{alumno.nombre | uppercase}}</td>
                     <td>{{alumno.edad}}</td>
                     <td>{{alumno.correo}}</td>
                     <td>{{alumno.pago | currency}}</td>
+                    <td>{{alumno.calif}}</td>
                 </tr>
             </tbody>
         </table>
