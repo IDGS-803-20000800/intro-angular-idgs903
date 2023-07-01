@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { idgsComponent } from './utl/idgs.component';
 import { ievnComponent } from './utl/ievn.component';
 import { IevnComponent } from './utl/ievn/ievn.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SumaComponent } from './utl/formularios/suma/suma.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OperasModule } from './utl/formularios/operas/operas.module';
 import { MenuComponent } from './utl/menu/menu.component';
 import { AlumnosFilterPipe } from './utl/alumnos-filter.pipe';
+import { AlumnoReactiveComponent } from './formularios/alumno-reactive/alumno-reactive.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,16 @@ import { AlumnosFilterPipe } from './utl/alumnos-filter.pipe';
     IevnComponent,
     SumaComponent,
     MenuComponent,
-    AlumnosFilterPipe
+    AlumnosFilterPipe,
+    AlumnoReactiveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    OperasModule
+    OperasModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
