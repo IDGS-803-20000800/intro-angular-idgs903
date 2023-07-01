@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AlumnoReactiveComponent {
   alumnoForm!: FormGroup;
+  isSubmitted = false;
 
   constructor(private readonly fb: FormBuilder) {
     this.alumnoForm = this.initForm();
@@ -16,6 +17,7 @@ export class AlumnoReactiveComponent {
   onSubmit(): void {
     // console.log('Form-> ', this.alumnoForm.value);
     this.obtenerValores();
+    this.isSubmitted = true;
   }
 
   obtenerValores(): void {

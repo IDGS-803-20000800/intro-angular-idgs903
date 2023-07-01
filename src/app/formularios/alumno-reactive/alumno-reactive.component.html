@@ -58,7 +58,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngIf="isSubmitted">
                     <td>{{alumnoForm.get('matricula')?.value}}</td>
                     <td>{{alumnoForm.get('nombre')?.value}}</td>
                     <td>{{alumnoForm.get('edad')?.value}}</td>
